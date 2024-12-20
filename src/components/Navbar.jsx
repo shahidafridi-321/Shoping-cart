@@ -1,7 +1,8 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import React, { useState } from "react";
 import { NavBarItem } from "./NavBarItem";
-
+import { Button } from "./Button";
+import { Link } from "react-router-dom";
 export const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -29,12 +30,18 @@ export const Navbar = () => {
 				<div className="flex items-center justify-between h-16">
 					<div className="flex flex-row w-full justify-between">
 						<div className="text-xl font-bold">ShopShop</div>
-						<div className="hidden md:block">
+						<div className="hidden md:flex flex-row items-center space-x-24">
 							<NavBarItem
 								links={links}
 								classes="flex gap-5 ml-10 items-baseline space-x-2"
 								itemsStyles={navBarItemsClassess}
 							/>
+							<Link to="/shop">
+								<Button
+									text="Shop Now"
+									classes="border-2 border-gray-300 hover:bg-gray-300 hover:text-gray-800"
+								/>
+							</Link>
 						</div>
 						<div className="md:hidden">
 							<button
