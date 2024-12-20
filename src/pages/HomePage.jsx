@@ -8,7 +8,7 @@ export const HomePage = () => {
 			<header>
 				<Navbar />
 			</header>
-			<main>
+			<main className="w-full bg-indigo-300">
 				<Home />
 			</main>
 		</div>
