@@ -10,18 +10,9 @@ export const Navbar = () => {
 		"text-gray-100 hover:border-b-2 border-gray-200 font-bold text-sm px-2 py-1  transition duration-300";
 
 	const links = [
-		{
-			title: "Home",
-			link: "/",
-		},
-		{
-			title: "Shop",
-			link: "/shop",
-		},
-		{
-			title: "Cart",
-			link: "/cart",
-		},
+		{ id: 1, title: "Home", link: "/" },
+		{ id: 2, title: "Shop", link: "/shop" },
+		{ id: 3, title: "Cart", link: "/cart" },
 	];
 
 	return (
