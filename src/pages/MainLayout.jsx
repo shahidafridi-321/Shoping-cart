@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar } from "../components/Navbar";
-import { Home } from "../components/Home";
 import { Footer } from "../components/Footer";
+import { Outlet } from "react-router-dom";
+const arr = [2,'shghahs', 3, 2, 1, 1, 3, 1, 3];
 
 export const MainLayout = () => {
+	const [cartItemsList, setCartItemsList] = useState(arr);
 	return (
 		<div className="flex flex-col">
 			<header>
-				<Navbar />
+				<Navbar cartItems={cartItemsList} />
 			</header>
 			<main className="w-full bg-indigo-300">
-				<Home />
+				<Outlet context={{ cartItemsList, setCartItemsList }} />
 			</main>
 			<footer className="w-full bg-dark py-5">
 				<Footer />
