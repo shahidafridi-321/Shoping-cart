@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { NavBarItem } from "./NavBarItem";
 import { Button } from "./Button";
 import { Link } from "react-router-dom";
+import { Carticon } from "./Carticon";
+
 export const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -27,6 +29,9 @@ export const Navbar = () => {
 								classes="flex gap-5 ml-10 items-baseline space-x-2"
 								itemsStyles={navBarItemsClassess}
 							/>
+							<Link to="/cart">
+								<Carticon />
+							</Link>
 							<Link to="/shop">
 								<Button
 									text="Shop Now"
