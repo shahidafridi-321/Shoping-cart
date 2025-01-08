@@ -15,7 +15,7 @@ export const BestSellerSection = () => {
 	return (
 		<div className="bg-gray-300 mx-auto py-10 text-center">
 			<h2 className="text-2xl font-semibold">Bestsellers</h2>
-			<BestSellerItems items={items} setItems={setItems} />
+			<BestSellerItems items={items} />
 		</div>
 	);
 };
