@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BestSellerItems } from "./BestSellerItems";
 
-export const BestSellerSection = () => {
+export const BestSellerSection = ({ cartItemsList, setCartItemsList }) => {
 	const [items, setItems] = useState([]);
 	useEffect(() => {
 		const getItems = async () => {
@@ -15,7 +15,11 @@ export const BestSellerSection = () => {
 	return (
 		<div className="bg-gray-300 mx-auto py-10 text-center">
 			<h2 className="text-2xl font-semibold">Bestsellers</h2>
-			<BestSellerItems items={items} />
+			<BestSellerItems
+				items={items}
+				cartItemsList={cartItemsList}
+				setCartItemsList={setCartItemsList}
+			/>
 		</div>
 	);
 };
