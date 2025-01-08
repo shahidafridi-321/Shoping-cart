@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { Button } from "./Button";
-import { Carticon } from "./Carticon";
 
-export const BestSellerItems = ({ items }) => {
+export const BestSellerItems = ({ items, cartItemsList, setCartItemsList }) => {
+	
 	const [totalPrice, setTotalPrice] = useState(0);
 	const handleClick = (e) => {
 		const item = items.find((item) => item.id == e.target.id);
-		setTotalPrice((prev) => Math.round((prev + item.price) * 100) / 100);
+
+		setCartItemsList((prev) => [...prev, "Workes"]);
 	};
 	console.log(totalPrice);
+	console.log(cartItemsList);
 
 	return (
 		<div className="flex flex-col items-center  md:grid md:grid-cols-4  gap-4 py-10 px-4">
