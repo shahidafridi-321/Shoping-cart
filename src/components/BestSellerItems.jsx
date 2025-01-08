@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Button } from "./Button";
+import { Carticon } from "./Carticon";
 
 export const BestSellerItems = ({ items }) => {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const handleClick = (e) => {
 		const item = items.find((item) => item.id == e.target.id);
-		setTotalPrice((prev) => prev + item.price);
+		setTotalPrice((prev) => Math.round((prev + item.price) * 100) / 100);
 	};
 	console.log(totalPrice);
 
