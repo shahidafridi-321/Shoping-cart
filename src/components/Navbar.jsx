@@ -5,7 +5,7 @@ import { Button } from "./Button";
 import { Link } from "react-router-dom";
 import { Carticon } from "./Carticon";
 
-export const Navbar = () => {
+export const Navbar = ({ cartItems }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const navBarItemsClassess =
@@ -30,7 +30,7 @@ export const Navbar = () => {
 								itemsStyles={navBarItemsClassess}
 							/>
 							<Link to="/cart">
-								<Carticon />
+								<Carticon cartItems={cartItems} />
 							</Link>
 							<Link to="/shop">
 								<Button
