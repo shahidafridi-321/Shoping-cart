@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "./Button";
 
-export const BestSellerItems = ({ items, cartItemsList, setCartItemsList }) => {
+export const BestSellerItems = ({ items, setCartItemsList }) => {
 	const handleClick = (e) => {
 		const newItem = items.find((item) => item.id == e.target.id);
 		if (!newItem) return;
@@ -15,9 +15,7 @@ export const BestSellerItems = ({ items, cartItemsList, setCartItemsList }) => {
 						? {
 								...item,
 								quantity: item.quantity + 1,
-								totalPrice: Math.round(
-									((item.quantity + 1) * item.price * 100) / 100
-								),
+								totalPrice: ((item.quantity + 1) * item.price * 100) / 100,
 						  }
 						: item
 				);
