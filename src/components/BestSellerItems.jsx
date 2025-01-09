@@ -2,14 +2,27 @@ import React, { useState } from "react";
 import { Button } from "./Button";
 
 export const BestSellerItems = ({ items, cartItemsList, setCartItemsList }) => {
-	
-	const [totalPrice, setTotalPrice] = useState(0);
 	const handleClick = (e) => {
-		const item = items.find((item) => item.id == e.target.id);
+		const newItem = items.find((item) => item.id == e.target.id);
+		if (!newItem) return;
 
-		setCartItemsList((prev) => [...prev, "Workes"]);
+		setCartItemsList((prev) => {
+			const itemExists = prev.find((item) => item.id === newItem.id);
+
+			if (itemExists) {
+				return prev.map((item) =>
+					item.id === newItem.id
+						? {
+								...item,
+								quantity: item.quantity + 1,
+								totalPrice: (item.quantity + 1) * item.price,
+						  }
+						: item
+				);
+			}
+			return [...prev, { ...newItem, quantity: 1, totalPrice: newItem.price }];
+		});
 	};
-	console.log(totalPrice);
 	console.log(cartItemsList);
 
 	return (
