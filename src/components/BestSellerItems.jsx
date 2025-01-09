@@ -23,8 +23,6 @@ export const BestSellerItems = ({ items, cartItemsList, setCartItemsList }) => {
 			return [...prev, { ...newItem, quantity: 1, totalPrice: newItem.price }];
 		});
 	};
-	console.log(cartItemsList);
-
 	return (
 		<div className="flex flex-col items-center  md:grid md:grid-cols-4  gap-4 py-10 px-4">
 			{items.map((item) => (
