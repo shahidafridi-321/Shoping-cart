@@ -3,7 +3,7 @@ import { Hero } from "./Hero";
 import { useOutletContext } from "react-router-dom";
 
 export const Home = () => {
-	const { cartItemsList, setCartItemsList } = useOutletContext();
+	const { items, cartItemsList, setCartItemsList } = useOutletContext();
 
 	return (
 		<div className="w-full mx-auto">
@@ -11,6 +11,7 @@ export const Home = () => {
 			<BestSellerSection
 				cartItemsList={cartItemsList}
 				setCartItemsList={setCartItemsList}
+				data={items}
 			/>
 		</div>
 	);
