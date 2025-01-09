@@ -8,7 +8,7 @@ export const MainLayout = () => {
 	const [items, setItems] = useState([]);
 	useEffect(() => {
 		const getItems = async () => {
-			const response = await fetch("https://fakestoreapi.com/products?limit=4");
+			const response = await fetch("https://fakestoreapi.com/products?limit=8");
 			const items = await response.json();
 			setItems(items);
 		};
