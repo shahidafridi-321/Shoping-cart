@@ -15,7 +15,9 @@ export const BestSellerItems = ({ items, cartItemsList, setCartItemsList }) => {
 						? {
 								...item,
 								quantity: item.quantity + 1,
-								totalPrice: (item.quantity + 1) * item.price,
+								totalPrice: Math.round(
+									((item.quantity + 1) * item.price * 100) / 100
+								),
 						  }
 						: item
 				);
