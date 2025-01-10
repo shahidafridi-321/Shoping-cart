@@ -15,11 +15,11 @@ export const MainLayout = () => {
 		getItems();
 	}, []);
 	return (
-		<div className="flex flex-col">
-			<header>
+		<div className="flex flex-col min-h-screen">
+			<header className="sticky top-0 left-0 z-10">
 				<Navbar numberOfItemsInCart={cartItemsList.length} />
 			</header>
-			<main className="w-full bg-indigo-300">
+			<main className="flex-grow bg-indigo-300">
 				<Outlet context={{ items, cartItemsList, setCartItemsList }} />
 			</main>
 			<footer className="w-full bg-dark py-5">
