@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router-dom";
-
+import { Button } from "./Button";
 export const Shopping = () => {
 	const { products, setCartItemsList } = useOutletContext();
 
@@ -57,19 +57,19 @@ export const Shopping = () => {
 							<span>({product.rating.count} reviews)</span>
 						</div>
 
-						<button
+						{/* <button
 							onClick={() => handleAddToCart(product.id)}
 							className="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200"
 						>
 							Add to Cart
-						</button>
-						{/* <Button
+						</button> */}
+						<Button
 							text="Add to Cart"
 							classes="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200"
 							onClick={() => {
 								handleAddToCart(product.id);
 							}}
-						/> */}
+						/>
 					</div>
 				))}
 			</div>
