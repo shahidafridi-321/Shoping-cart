@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 
 export const CartItem = () => {
 	const product = useLoaderData();
+	const [isLoading, setIsLoading] = useState(true);
+
+	useEffect(() => {
+		if (product) {
+			const timer = setTimeout(() => setIsLoading(false), 500);
+			return () => clearTimeout(timer);
+		}
+	}, [product]);
+
+	if (isLoading) {
+		return (
+			<div className="flex items-center justify-center h-screen">
+				<div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+			</div>
+		);
+	}
 
 	return (
 		<div className="bg-white border border-gray-200 rounded-2xl shadow-lg p-6 flex flex-col items-center max-w-md mx-auto mt-10">
