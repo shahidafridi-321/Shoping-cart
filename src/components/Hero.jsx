@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "./Button";
 import { Link } from "react-router-dom";
+import heroImage from "../../public/hero-img.jpg";
 export const Hero = () => {
 	return (
 		<div id="hero">
@@ -30,8 +31,8 @@ export const Hero = () => {
 				</div>
 				<div className="w-3/2  flex justify-start">
 					<img
-						src="../../public/hero-img.jpg"
-						alt=""
+						src={heroImage}
+						alt="Hero Image"
 						className="w-full max-w-sm lg:max-w-md  object-contain rounded-lg shadow-lg"
 					/>
 				</div>
