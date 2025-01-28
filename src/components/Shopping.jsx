@@ -1,4 +1,4 @@
-import { useLoaderData, useOutletContext } from "react-router-dom";
+import { Link, useLoaderData, useOutletContext } from "react-router-dom";
 import { Button } from "./Button";
 export const Shopping = () => {
 	const { setCartItemsList } = useOutletContext();
@@ -37,35 +37,38 @@ export const Shopping = () => {
 			</h1>
 			<div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
 				{products.map((product) => (
-					<div
+					<Link
+						to={"/shop/" + product.id}
 						key={product.id}
-						className="bg-white border border-gray-200 rounded-lg shadow-lg p-4 flex flex-col"
+						className="no-underline"
 					>
-						<img
-							src={product.image}
-							alt={product.title}
-							className="h-48 w-full object-contain mb-4 rounded-lg"
-						/>
-						<h2 className="text-lg font-semibold text-gray-800 mb-2 truncate">
-							{product.title}
-						</h2>
-						<p className="text-gray-600 mb-2">{product.category}</p>
-						<p className="text-gray-800 font-bold text-xl mb-2">
-							${product.price}
-						</p>
-						<div className="flex items-center justify-between text-sm text-gray-600 mb-4">
-							<span>Rating: {product.rating.rate} ⭐</span>
-							<span>({product.rating.count} reviews)</span>
-						</div>
+						<div className="bg-white border border-gray-200 rounded-lg shadow-lg p-4 flex flex-col">
+							<img
+								src={product.image}
+								alt={product.title}
+								className="h-48 w-full object-contain mb-4 rounded-lg"
+							/>
+							<h2 className="text-lg font-semibold text-gray-800 mb-2 truncate">
+								{product.title}
+							</h2>
+							<p className="text-gray-600 mb-2">{product.category}</p>
+							<p className="text-gray-800 font-bold text-xl mb-2">
+								${product.price}
+							</p>
+							<div className="flex items-center justify-between text-sm text-gray-600 mb-4">
+								<span>Rating: {product.rating.rate} ⭐</span>
+								<span>({product.rating.count} reviews)</span>
+							</div>
 
-						<Button
-							text="Add to Cart"
-							classes="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200"
-							onClick={() => {
-								handleAddToCart(product.id);
-							}}
-						/>
-					</div>
+							<Button
+								text="Add to Cart"
+								classes="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200"
+								onClick={() => {
+									handleAddToCart(product.id);
+								}}
+							/>
+						</div>
+					</Link>
 				))}
 			</div>
 		</div>
